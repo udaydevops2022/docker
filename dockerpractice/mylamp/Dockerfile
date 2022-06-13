@@ -1,5 +1,6 @@
 FROM ubuntu:focal
-LABEL name="uday"
-RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install apache2 -y && service start apache2.service
+LABEL author="uday"
+RUN export DEBIAN_FRONTEND=noninteractive && apt update && apt install apache2 -y 
 EXPOSE 80
-CMD ["sleep", "1d"]
+ADD start.sh /start.sh
+CMD ["/bin/bash", "-c", "/start.sh"]
